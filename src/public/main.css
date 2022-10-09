@@ -1,0 +1,208 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes loadin {
+    from {
+      opacity: 0.10;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+/* 
+body * {
+    opacity: 1;
+    animation: 3s 1 alternate loadin;
+} */
+
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+#header {
+    height: 350px;
+    background-color: #ff6b00;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    width: fit-content;
+    margin-right: 4.5rem;
+    color: white;
+    cursor: pointer;
+    font-weight: black;
+    font-family: "Arial Black";
+    font-size: 12.5px;
+}
+
+#brand {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-right: 2rem;
+}
+
+#login-container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2.5rem;
+    margin-top: 1rem;
+}
+
+#brand-message {
+    margin-top: 0.5rem;
+    font-size: 20px;
+    font-family: "Arial Black";
+    letter-spacing: 5px;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+#login {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+#why-us {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#our-services {
+    margin-top: 4rem;
+}
+
+.us-card {
+    text-align: center;
+    width: 250px;
+    border: #ff6b00 2px solid;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 1.025em;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+.us-title {
+    color: #ff6b00;
+    font-family: "Arial Black";
+    padding-bottom: 0.2rem;
+    font-size: 18px;
+}
+
+.us-card:hover {
+    transform: scale(1.05);
+}
+
+#our-services h2 {
+    font-family: "Arial Black";
+    color: #ff6b00;
+    text-align: center;
+}
+
+.service-cards {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-card {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: "200px 200px";
+    grid-template-rows: "auto auto";
+    border: #ff6b00 2px solid;
+    border-radius: 1.125rem;
+    width: 500px;
+    padding: 1rem;
+    margin: 1rem;
+    transition: transform 0.8s ease-in-out;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card img {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding-right: 1rem;
+}
+
+.service-title {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row: 1;
+    padding: 0;
+}
+
+.service-description {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row: 2;
+}
+
+#testimonials {
+    margin-top: 4rem;
+}
+
+#testimonials h2 {
+    font-family: "Arial Black";
+    color: #ff6b00;
+    text-align: center;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.testimonial {
+    border: 2px #ff6b00 solid;
+    padding: 1rem;
+    cursor: pointer;
+    margin: 1rem;
+    width: 200px;
+    border-radius: 1.125rem;
+    text-align: center;
+    transition: transform 0.8s ease-in-out;
+}
+
+.testimonial:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-title {
+    font-family: "ARIAL BLACK";
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+
+#footer {
+    height: 200px;
+    margin-top: 4rem;
+    background-color: #ff6b00;
+}

@@ -1,0 +1,25 @@
+<section id="header">
+    <nav>
+        <a href="/portfolio">
+            PORTFOLIO
+        </a>
+        <a href="/">
+            HOME
+        </a>
+        <a href="/store">
+            STORE
+        </a>
+    </nav>
+
+    <div id="brand">
+        <img src="https://i.imgur.com/aKvhyZ4.png" alt="" width="100px" height="100px">
+    </div>
+    <p id="brand-message">DEVNICS</p>
+    <div id="login-container">
+        <% if (loggedIn) { %>
+            <a href="/" id="login">Logged in</a>
+            <% } else { %>
+                <a href="/auth/login" id="login">Login</a>
+                <% } %>
+    </div>
+</section>
