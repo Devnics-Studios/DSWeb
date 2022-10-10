@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client";
 import ProductManager from "../Manager/ProductManager";
 import passport from "passport";
 import session from "express-session";
-import Strategy from "passport-discord";
+import "../../strategies/DiscordStrategy";
 
 passport.serializeUser((user, done) => {
     return done(null, user);
@@ -23,38 +23,13 @@ export default class App {
     public db = new PrismaClient();
     public productManager = new ProductManager(this);
 
-    constructor(port: number = 3000) {
+    constructor(port: number = 3001) {
         this.server = express();
 
         this.db.$connect();
 
-        passport.use(new Strategy({
-            clientID: process.env.CLIENT_ID,
-            clientSecret: process.env.CLIENT_SECRET,
-            callbackURL: "/auth/callback"
-        }, async (accessToken, refreshToken, profile, done) => {
-            const id = profile.id;
-            const user = await this.db.webAccount.findFirst({
-                where: { userId: id }
-            });
-
-            if (user) {
-                return done(null, {
-                    profile, user
-                })
-            } else {
-                this.db.webAccount.create({
-                    data: { userId: id }
-                }).then(usr => {
-                    return done(null, {
-                        profile, user: usr
-                    })
-                })
-            }
-        }));
-
         this.server.use(session({
-            secret: 'keyboard cat',
+            secret: 'ExtremlySecretSecret',
             resave: false,
             saveUninitialized: false
         }));
@@ -64,10 +39,6 @@ export default class App {
         this.server.use(express.static(process.cwd() + "/src/public"));
         this.server.set("view engine", "ejs");
         this.server.set('views', process.cwd() + "/src/views");       
-        
-         // @ts-ignore
-        this.server.get("/auth/login", passport.authenticate('discord', { scope: ["identify"], prompt: "consent" }), function(req, res) {})
-        this.server.get("/auth/callback",  passport.authenticate('discord', { failureRedirect: '/' }), function(req, res) { res.redirect('/') })
         
         this.server.use("/", RouteController);
         
